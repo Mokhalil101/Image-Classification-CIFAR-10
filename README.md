@@ -97,9 +97,12 @@ The following comparisons were visualized:
 ```bash
 pip install -r requirements.txt
 
+
 ---
+
 
 ## 📌 Conclusion
 This project demonstrates how optimizer choice affects neural network training.  
 Adam provides faster convergence, while SGD offers stable learning behavior.
 
+---
