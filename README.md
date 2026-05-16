@@ -1,89 +1,105 @@
-🧠 CIFAR-10 Image Classification using CNN
-📌 Project Description
+# 🧠 Handwritten Digit Classification using MLP (PyTorch)
 
-This project implements a Deep Learning Convolutional Neural Network (CNN) for image classification using the CIFAR-10 real-world dataset.
-The objective is to build, train, evaluate, and compare CNN models using different optimization techniques and analyze their performance through multiple experiments and visualizations.
+## 📌 Project Overview
+This project implements a **Multilayer Perceptron (MLP)** model to classify handwritten digits using the **MNIST dataset**.  
+The main goal is to **compare the performance of different optimizers (Adam vs SGD)** in terms of loss convergence and accuracy.
 
-📊 Dataset
-Dataset Name: CIFAR-10
-Type: Real-world image dataset
-Number of Classes: 10
-airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck
-Image Size: 32 × 32 RGB
-Source:
-https://www.cs.toronto.edu/~kriz/cifar.html
-🔄 Data Preprocessing
+---
 
+## 📂 Dataset
+- **Name:** MNIST Handwritten Digits
+- **Classes:** 10 (Digits 0 → 9)
+- **Image Size:** 28 × 28 grayscale
+- **Source:** torchvision.datasets
+
+---
+
+## 🔧 Data Preprocessing
 The following preprocessing steps were applied:
 
-Normalization of image pixel values
-Data Augmentation (for training data only):
-Random Horizontal Flip
-Random Crop with padding
-Dataset Splitting:
-80% Training
-20% Validation
-Separate Test Set
-🧠 Model Architecture
+- Conversion to Tensor
+- Normalization using mean = 0.5 and std = 0.5
+- Flattening images from 28×28 to 784 features
+- Splitting dataset into:
+  - **Training set**
+  - **Validation set**
 
-A Convolutional Neural Network (CNN) was implemented with the following structure:
+---
 
-Convolutional Layers: 3 layers
-Activation Function: ReLU
-Batch Normalization
-Max Pooling
-Fully Connected Layers
-Dropout (0.5) for regularization
+## 🏗️ Model Architecture
+The implemented MLP architecture consists of:
 
-This architecture contains multiple hidden layers as required.
+- Input Layer: 784 neurons
+- Hidden Layer 1: Fully Connected + ReLU
+- Hidden Layer 2: Fully Connected + ReLU
+- Output Layer: 10 neurons (Softmax via CrossEntropyLoss)
 
-⚙️ Model Enhancements
+---
 
-The following enhancement techniques were applied:
+## ⚙️ Optimizers Used
+Two different optimizers were used and compared:
 
-✅ Data Augmentation
-✅ Batch Normalization
-✅ Dropout
-🏋️ Training Details
-Loss Function: CrossEntropyLoss
-Metrics Monitored:
-Training Loss
-Validation Loss
-Training Accuracy
-Validation Accuracy
-🧪 Experiments (Mandatory)
+- **Adam Optimizer**
+- **Stochastic Gradient Descent (SGD)**
 
-Two experiments were conducted by varying the optimizer, while keeping all other parameters constant.
+Both optimizers were trained using the same:
+- Number of epochs
+- Learning rate
+- Batch size
+- Loss function (CrossEntropyLoss)
 
-🔬 Experiment A
-Optimizer: Adam
-Learning Rate: 0.001
-🔬 Experiment B
-Optimizer: SGD
-Learning Rate: 0.01
-📈 Visualizations
+---
 
-The following plots were generated:
+## 📊 Evaluation Metrics
+The model performance was evaluated using:
 
-Training vs Validation Loss
-Training vs Validation Accuracy
-Adam vs SGD Training Loss
-Adam vs SGD Validation Loss
-Adam vs SGD Training Accuracy
-Adam vs SGD Validation Accuracy
+- Training Loss
+- Validation Loss
+- Training Accuracy
+- Validation Accuracy
 
-These visualizations clearly show the learning behavior and convergence differences between optimizers.
+---
 
-📊 Results
-Model	Optimizer	Test Accuracy	Test Loss
-A	Adam	75.42%	0.7110
-B	SGD	75.04%	0.7116
-🧠 Observations
-Adam converges faster during early epochs.
-SGD achieves comparable final performance but with slower convergence.
-The CNN model achieved approximately 75% accuracy on the CIFAR-10 test dataset.
+## 📈 Results & Comparison
+The following comparisons were visualized:
+
+- Adam vs SGD Training Loss
+- Adam vs SGD Validation Loss
+- Adam vs SGD Training Accuracy
+- Adam vs SGD Validation Accuracy
+
+### 🔍 Observations
+- Adam converges faster during early epochs.
+- SGD shows more stable behavior but requires more epochs.
+- Adam generally achieves higher validation accuracy.
+- Optimizer choice significantly impacts convergence speed and final performance.
+
+---
+
+## 🧪 Experiments
+- Experiment 1: Training MLP using **Adam Optimizer**
+- Experiment 2: Training MLP using **SGD Optimizer**
+- Final comparison between both optimizers using plots.
+
+---
+
+## 🛠️ Technologies Used
+- Python
+- PyTorch
+- Torchvision
+- Matplotlib
+- Google Colab / Jupyter Notebook
+
+---
 
 ## 🚀 How to Run
 
 ```bash
 pip install -r requirements.txt
+
+---
+
+## 📌 Conclusion
+This project demonstrates how optimizer choice affects neural network training.  
+Adam provides faster convergence, while SGD offers stable learning behavior.
+
